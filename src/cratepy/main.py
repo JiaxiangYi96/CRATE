@@ -17,26 +17,28 @@ Functions
 crate_simulation
     Perform CRATE simulation.
 """
+import copy
 #
 #                                                                       Modules
 # =============================================================================
 # Standard
 import os
-import sys
 import pickle
+import sys
 import time
-import copy
-# Third-party
-import numpy as np
+
+import ioput.fileoperations as filop
 # Local
 import ioput.info as info
-import ioput.readinputdata as rid
-import ioput.fileoperations as filop
 import ioput.packager as packager
-from clustering.crve import CRVE
+import ioput.readinputdata as rid
+# Third-party
+import numpy as np
 from clustering.clusteringdata import set_clustering_data
-from online.crom.asca import ASCA
+from clustering.crve import CRVE
 from ioput.miscoutputfiles.vtkoutput import VTKOutput
+from online.crom.asca import ASCA
+
 #
 #                                                          Authorship & Credits
 # =============================================================================
@@ -46,6 +48,8 @@ __status__ = 'Stable'
 # =============================================================================
 #
 # =============================================================================
+
+
 def crate_simulation(arg_input_file_path, arg_discret_file_dir=None,
                      is_null_stdout=False):
     """Perform CRATE simulation.
@@ -378,6 +382,8 @@ def crate_simulation(arg_input_file_path, arg_discret_file_dir=None,
     # Display ending program message
     info.displayinfo('1', end_time, end_date, problem_name, phase_names,
                      phase_times)
+
+
 # =============================================================================
 # A CRATE simulation can be performed directly by executing this script with
 # the following command
